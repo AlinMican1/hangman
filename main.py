@@ -1,5 +1,11 @@
 from hang import Hangman
-word = "abcdef"
+word = "abcdeb"
 hangman = Hangman(word)
-if hangman.guess_word('l'):
-    print(hangman.correct_guess('b'))
+print(hangman.hide_word())
+letter_guess = input("Enter: ")
+if hangman.guess_word(letter_guess):
+    print(hangman.reveal_letter(letter_guess))
+else:
+    print(hangman.wrong_guess())
+#print(hangman.reveal_letter('b'))
+
