@@ -8,4 +8,4 @@ if hangman.guess_word(letter_guess):
 else:
     print(hangman.wrong_guess())
 #print(hangman.reveal_letter('b'))
-#Work
+#test
