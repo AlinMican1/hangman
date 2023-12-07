@@ -21,10 +21,14 @@ class Hangman:
                 self.guessed[i] = letter
         return self.guessed
     
-    def wrong_guess(self):
-        hang_array = [['|','-','-','|'],
-                      ['|',' ',' ','|']]
-        return hang_array
+    def wrong_guess(self,lifes):
+        
+        array = ['_','_','_','_','_','_','_']
+        string = 'WRONG!!'
+        string = string[::-1]
+        array[lifes] = string[lifes]
+        lifes-=1
+        return array[::-1]
 
     def hide_word(self):
         return self.guessed
