@@ -1,10 +1,11 @@
 class Hangman:
-    lifes = 7
+    lifes = 6
     correct_letter = 0
 
     def __init__(self, word):
         self.word = word
         self.guessed = ["_"] * (len(self.word) - 1)
+        self.array = ["_", "_", "_", "_", "_", "_", "_"]
 
     # Return True or False if the letter guessed is correct.
     def guess_word(self, guess):
@@ -16,17 +17,20 @@ class Hangman:
     def reveal_letter(self, letter):
         for i in range(len(self.word)):
             if self.word[i] == letter:
-                correct_letter += 1
                 self.guessed[i] = letter
+                self.correct_letter += 1
+
         return " ".join(self.guessed)
 
+    def guessed_letters(self, letter):
+        return letter
+
     def wrong_guess(self, lifes):
-        array = ["_", "_", "_", "_", "_", "_", "_"]
         string = "WRONG!!"
         string = string[::-1]
-        array[lifes] += string[lifes]
+        self.array[lifes] = string[lifes]
 
-        return " ".join(array[::-1])
+        return " ".join(self.array[::-1])
 
     def hide_word(self):
         return self.guessed
