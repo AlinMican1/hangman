@@ -23,7 +23,6 @@ hangman = Hangman(word)
 #Print the blank of how many words the user needs to guess.
 print(f"{" ".join(hangman.hide_word())}\n")
 
-print(len(word))
 wrong_ans = set()
 while hangman.lifes >= 0 and hangman.correct_letter != (len(word) - 1):
     letter_guess = input("Enter a letter to guess: ")
